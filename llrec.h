@@ -1,5 +1,6 @@
 #ifndef LLREC_H
 #define LLREC_H
+
 #include <cstdlib>
 
 /**
@@ -13,6 +14,8 @@ struct Node
     Node(int v, Node* n) : val(v), next(n) {}
 };
 
+//helper function for my pivot function
+void helper(Node *&head, Node *&smaller, Node *&larger, int pivot);
 
 /**
  * Given a linked list pointed to by head, creates two lists
@@ -82,7 +85,20 @@ Node* llfilter(Node* head, Comp pred)
     // Provide your implementation below
     //*********************************************
 
-
+    if(head == NULL){
+        return NULL;
+    }
+    else{
+        Node* rest = llfilter(head -> next, pred);
+        if(pred(head -> val)){
+            delete head;
+            return rest;
+        }
+        else{
+            head -> next = rest;
+            return head;
+        }
+    }
 }
 
 #endif
