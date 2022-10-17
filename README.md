@@ -14,3 +14,19 @@ g++ -g -Wall -std=c++11 -o stack-test stack-test.o
 
 To run stack-test:
 ./stack-test
+
+Part 4: Heap- This is an implementation of a heap using vectors
+Part 5: Log Simulation- This is a logic simulator program (and, or, not) that uses my heap
+
+To compile and run heap:
+cd heap_test
+make
+make test
+
+Valgrind:
+make Valgrind
+
+To compile and run the logic simulator (I am using AND as an example):
+cd logicsim
+./logicsim single_and.txt > my_and.uml
+java -jar plantuml.jar my_and.uml
